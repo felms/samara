@@ -30,7 +30,7 @@ public class IMDBReader {
     }
 
     public String getTop250() {
-        HttpResponse response = null;
+        HttpResponse<String> response = null;
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
