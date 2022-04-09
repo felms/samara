@@ -1,14 +1,13 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
+
+import java.io.FileInputStream;
+import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.Properties;
 
+import java.util.Properties;
 
 public class IMDBReader {
 
@@ -22,8 +21,6 @@ public class IMDBReader {
             properties.load(new FileInputStream(propertiesFile));
 
             this.apiKey = properties.getProperty("API_KEY");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,7 +34,7 @@ public class IMDBReader {
                                     .uri(new URI("https://imdb-api.com/en/API/Top250Movies/" + this.apiKey))
                                     .GET().build();
 
-            response = client.send(request, BodyHandlers.ofString());
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
         } catch (URISyntaxException | IOException | InterruptedException e) {
             e.printStackTrace();
         }
