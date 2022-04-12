@@ -9,11 +9,11 @@ import java.net.http.HttpResponse;
 
 import java.util.Properties;
 
-public class IMDBReader {
+public class ImdbApiClient {
 
     private String apiKey;
 
-    public IMDBReader() {
+    public ImdbApiClient() {
         
         try {
             String propertiesFile = "apikey.properties";
