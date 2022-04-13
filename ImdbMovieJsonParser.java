@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ImdbMovieJsonParser {
+public class ImdbMovieJsonParser implements JsonParser{
 
     private String json;
 

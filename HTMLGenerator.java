@@ -9,7 +9,7 @@ public class HTMLGenerator {
         this.printWriter = printWriter;
     }
 
-    public void generate(List<Movie> movies) {
+    public void generate(List<? extends Content> contentList) {
         String open = """
                         <!DOCTYPE html> 
                             <html lang=\"en\">
@@ -39,9 +39,9 @@ public class HTMLGenerator {
 
         printWriter.write(open);
 
-        movies.forEach(movie -> {
-            String s = String.format(divTemplate, movie.getTitle(), movie.getImgString(), movie.getFullTitle(),
-                        movie.getImdbRating(), movie.getYear());
+        contentList.forEach(item -> {
+            String s = String.format(divTemplate, item.getTitle(), item.getUrlImage(), item.getTitle(),
+                        item.getRating(), item.getYear());
             printWriter.write(s);        
         });
 

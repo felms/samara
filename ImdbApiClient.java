@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 
 import java.util.Properties;
 
-public class ImdbApiClient {
+public class ImdbApiClient implements APIClient{
 
     private String apiKey;
 
@@ -26,7 +26,7 @@ public class ImdbApiClient {
         }
     }
 
-    public String getTop250() {
+    public String getBody() {
         HttpResponse<String> response = null;
         try {
             HttpClient client = HttpClient.newHttpClient();

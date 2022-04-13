@@ -1,4 +1,4 @@
-public class Movie {
+public class Movie implements Content{
 
     private final String id;
     private final int rank;
@@ -48,7 +48,7 @@ public class Movie {
         return year;
     }
 
-    public String getImgString() {
+    public String getUrlImage() {
         return imgString;
     }
 
@@ -56,7 +56,7 @@ public class Movie {
         return crew;
     }
 
-    public double getImdbRating() {
+    public double getRating() {
         return imdbRating;
     }
 
