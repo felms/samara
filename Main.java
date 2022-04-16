@@ -1,5 +1,8 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Main {
     
@@ -11,10 +14,11 @@ public class Main {
 
         // Faz o 'parse' e transforma a string em uma lista de filmes
         JsonParser jsonParser = new ImdbMovieJsonParser(json);
-        var movieList = jsonParser.parse();
+        List<Movie> movieList = (List<Movie>) jsonParser.parse();
         
         // Gera o HTML
         PrintWriter writer = new PrintWriter("index.html");
+        Collections.sort(movieList, Comparator.comparing(Movie::getYear));
         new HTMLGenerator(writer).generate(movieList);
         writer.close();
 

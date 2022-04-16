@@ -1,4 +1,4 @@
-public class Movie implements Content{
+public class Movie implements Comparable<Movie>, Content{
 
     private final String id;
     private final int rank;
@@ -69,6 +69,12 @@ public class Movie implements Content{
         return "Movie [id=" + id + ", rank=" + rank + ", title=" + title + ", fullTitle=" + fullTitle +
                 "year=" + year + ", imgString=" + imgString + "crew=" + crew +  ", imdbRating=" + imdbRating
                 + ", imdbRatingCount=" + imdbRatingCount + "]";
+    }
+
+    @Override
+    public int compareTo(Movie o) {
+        
+        return Double.compare(this.getRating(), o.getRating());
     }
 
 
